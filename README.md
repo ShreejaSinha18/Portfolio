@@ -1,5 +1,5 @@
 # Portfolio
-=======
+
 ## SHREEJA SINHA
 
 B.Tech CSE Grad (Batch of 2026)
