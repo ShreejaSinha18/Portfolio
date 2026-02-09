@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #ffffff;
+}
+
+.container {
+    padding: 0 4rem;
+}
+
+header {
+    height: 4.163rem;
+    background-color: #01014d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 4rem;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.8rem;
+}
