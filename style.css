@@ -1,70 +1,447 @@
+/* 1. Reset & Root Setup */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #ffffff;
+    background-color: #0b0f19;
+    color: #f1f5f9;
+    font-size: 1.6rem; /* 16px default base size */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    line-height: 1.6;
 }
 
 .content {
-    padding: 0 5rem;
+    padding: 0 4rem;
+    max-width: 120rem;
+    margin: 0 auto;
 }
 
+/* 2. Header & Top Nav */
 header {
-    height: 4.163rem;
+    height: 6rem;
     background-color: #01014d;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.1rem solid #1e293b;
+}
+
+header .navbar {
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
-nav ul {
+
+header nav ul {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 4rem;
+    gap: 2.5rem;
 }
-nav ul li a {
+
+header nav ul li a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
-    padding: 0.8rem;
+    font-size: 1.4rem;
+    transition: color 0.2s ease;
 }
 
-main {
-    background-color: #d3f2fe;
+header nav ul li a:hover, header nav ul li a.nav-cta {
+    color: #38bdf8;
 }
-main h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
+
+/* 3. Hero Section */
+main .hero-section {
+    background-color: #01014df2;
+    padding: 6rem 0;
 }
-main p {
-    font-size: 1.1rem;
-    text-align: justify;
-    font-family: cursive;
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
 }
-main .content {
-    display: table;
-    width: 100%;
+
+.hero-section .left {
+    flex: 1;
 }
-main .left,
-main .right {
-    display: table-cell;
-    vertical-align: top;
+
+.hero-section h1 {
+    font-size: 3.8rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
 }
-main .left {
-    width: 55%;
-    padding: 4rem 2rem;
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #38bdf8;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
 }
-main .right {
-    text-align: center;
-    padding: 2rem 5rem 2rem 0rem;
+
+.hero-section p {
+    font-size: 1.7rem;
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+    max-width: 65rem;
 }
-main .right img {
-    width: 10rem;
-    height: 10rem;
+
+.hero-cta {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.primary-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-0.2rem);
+}
+
+.secondary-btn {
+    border: 0.2rem solid #38bdf8;
+    color: #38bdf8;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(56, 189, 248, 0.1);
+    transform: translateY(-0.2rem);
+}
+
+.hero-section .right img.profile-pic {
+    width: 22rem;
+    height: 22rem;
     border-radius: 50%;
-    border: 4px solid #0101288c;
-    margin-top: 1.2rem;
+    border: 0.4rem solid #64748b;
+    object-fit: cover;
+}
+
+/* 4. Common Section Styling */
+.section {
+    padding: 6rem 0;
+    border-bottom: 0.1rem solid #1e293b;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    border-left: 0.4rem solid #38bdf8;
+    padding-left: 1.5rem;
+}
+
+.about-card {
+    background-color: #1e293b;
+    padding: 2.5rem;
+    border-radius: 0.8rem;
+    font-size: 1.8rem;
+    color: #cbd5e1;
+}
+
+/* Timeline (Internships) */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.timeline-card {
+    background-color: #1e293b;
+    padding: 2rem 2.5rem;
+    border-radius: 0.8rem;
+    border-left: 0.4rem solid #2563eb;
+}
+
+.timeline-card .date {
+    font-size: 1.3rem;
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+.timeline-card h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0.5rem 0 0.2rem 0;
+}
+
+.timeline-card h4 {
+    font-size: 1.6rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background-color: #1e293b;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid #334155;
+}
+
+.skill-card h3 {
+    font-size: 1.8rem;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+}
+
+.skill-card p {
+    font-size: 1.4rem;
+    color: #cbd5e1;
+}
+
+/* Publications */
+.publication-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.pub-card {
+    background-color: #1e293b;
+    padding: 2rem 2.5rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid #334155;
+}
+
+.pub-badge {
+    background-color: #0f172a;
+    color: #38bdf8;
+    padding: 0.3rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+}
+
+.pub-card h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.pub-card p {
+    font-size: 1.5rem;
+    color: #94a3b8;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: #1e293b;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid #334155;
+}
+
+.project-card h3 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    font-size: 1.5rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.tags span {
+    background-color: #0f172a;
+    color: #38bdf8;
+    padding: 0.3rem 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+}
+
+/* Achievements List */
+.achievements-list {
+    list-style: square;
+    padding-left: 2.5rem;
+}
+
+.achievements-list li {
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+    color: #cbd5e1;
+}
+
+.achievements-list li strong {
+    color: #38bdf8;
+}
+
+/* Contact */
+.contact-desc {
+    font-size: 1.7rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* 5. Footer (2 Columns) */
+footer {
+    background-color: #010128;
+    padding: 4rem 0 2rem 0;
+}
+
+footer .footer-navbar {
+    display: flex;
+    justify-content: space-around;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 0.1rem solid #334155;
+    margin-bottom: 2rem;
+}
+
+.footer-col h4 {
+    font-size: 1.8rem;
+    color: #38bdf8;
+    margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 1.4rem;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #64748b;
+}
+
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES
+============================================= */
+
+/* Tablet & Smaller Devices (max-width: 900px) */
+@media (max-width: 900px) {
+    .content {
+        padding: 0 2rem; /* Reduce side padding on smaller screens */
+    }
+
+    /* Stack Hero Section Vertically */
+    .hero-container {
+        flex-direction: column-reverse; /* Places profile image above text */
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .hero-section .left {
+        padding: 0;
+    }
+
+    .hero-section p {
+        margin: 0 auto 2.5rem auto;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .hero-section .right img.profile-pic {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+
+/* Mobile Devices (max-width: 600px) */
+@media (max-width: 600px) {
+    /* Wrap Header Navigation */
+    header {
+        height: auto;
+        padding: 1.5rem 0;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.2rem;
+    }
+
+    header nav ul li a {
+        font-size: 1.3rem;
+    }
+
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .hero-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Stack Footer Columns Vertically */
+    footer .footer-navbar {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
 }
